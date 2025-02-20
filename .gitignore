@@ -1,0 +1,4 @@
+node_modules/
+*.exe
+*.pack
+node_modules
