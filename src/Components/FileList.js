@@ -68,24 +68,27 @@ const FileList = ({files, onFileClick, onSaveEdit, onFileDelete}) => {
                             </>
                         }
                         { (file.id === editStatus) &&
-                            <>
-                                <input
-                                    className='form-control col-10'
-                                    value={value}
-                                    // ref={node}
-                                    onChange={(e) => setValue(e.target.value)}
-                                />
-                                <button
-                                    type='button'
-                                    className='icon-button col-2'
-                                    onClick={closeFileSearch}>
-                                    <FontAwesomeIcon
-                                        icon={faClose}
-                                        size="xl"
-                                        title="close"
+                            <div className="row align-items-center">
+                                <div className="col-10">
+                                    <input
+                                        className='form-control'
+                                        value={value}
+                                        onChange={(e) => setValue(e.target.value)}
                                     />
-                                </button>
-                            </>
+                                </div>
+                                <div className="col-2">
+                                    <button
+                                        type='button'
+                                        className='icon-button'
+                                        onClick={closeFileSearch}>
+                                        <FontAwesomeIcon
+                                            icon={faClose}
+                                            size="xl"
+                                            title="close"
+                                        />
+                                    </button>
+                                </div>
+                            </div>
                         }
                     </li>
                 ))
