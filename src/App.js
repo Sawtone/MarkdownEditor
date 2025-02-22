@@ -18,6 +18,7 @@ function App() {
           <FileList
             files={defaultFiles}
             onFileClick={(id)=>{console.log(id)}}
+            onSaveEdit={(id, newValue)=>{console.log(id); console.log(newValue)}}
             onFileDelete={(id)=>{console.log('delete', id)}}
           />
         </div>

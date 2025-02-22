@@ -9,11 +9,31 @@ import PropTypes from 'prop-types';
 const FileList = ({files, onFileClick, onSaveEdit, onFileDelete}) => {
     const [ editStatus, setEditStatus ] = useState(false);
     const [ value, setValue ] = useState('');
+
     const closeFileSearch = (e) => {
         e.preventDefault();
         setEditStatus(false);
         setValue('')
     }
+
+    useEffect(() => {
+        const handleInput = (e) => {
+            const { keyCode } = e;
+            if(keyCode === 13 && editStatus) { // Enter
+                const editFile = files.find(file => file.id === editStatus);
+                onSaveEdit(editFile.id, value);
+                setEditStatus(false);
+                setValue('');
+            } else if (keyCode === 27 && editStatus) { // Esc
+                closeFileSearch(e);
+            }
+        }
+
+        document.addEventListener('keyup', handleInput);
+        return (() => {
+            document.removeEventListener('keyup', handleInput)
+        })
+    }, [editStatus, value, onSaveEdit])
 
     return (
         <ul className="list-group list-group-flush file-list">
@@ -69,14 +89,14 @@ const FileList = ({files, onFileClick, onSaveEdit, onFileDelete}) => {
                         }
                         { (file.id === editStatus) &&
                             <div className="row align-items-center">
-                                <div className="col-10">
+                                <div className="col-11">
                                     <input
                                         className='form-control'
                                         value={value}
                                         onChange={(e) => setValue(e.target.value)}
                                     />
                                 </div>
-                                <div className="col-2">
+                                <div className="col-1">
                                     <button
                                         type='button'
                                         className='icon-button'
@@ -100,6 +120,7 @@ const FileList = ({files, onFileClick, onSaveEdit, onFileDelete}) => {
 FileList.propTypes = {
     files: PropTypes.array.isRequired,
     onFileClick: PropTypes.func.isRequired,
+    onSaveEdit: PropTypes.func.isRequired,
     onFileDelete: PropTypes.func.isRequired,
 }
 export default FileList;
