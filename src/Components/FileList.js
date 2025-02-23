@@ -9,31 +9,26 @@ import PropTypes from 'prop-types';
 const FileList = ({files, onFileClick, onSaveEdit, onFileDelete}) => {
     const [ editStatus, setEditStatus ] = useState(false);
     const [ value, setValue ] = useState('');
+    const enterPressed = useKeyPress(13);
+    const escPressed = useKeyPress(27);
 
-    const closeFileSearch = (e) => {
-        e.preventDefault();
+    const closeFileSearch = () => {
         setEditStatus(false);
         setValue('')
     }
 
     useEffect(() => {
-        const handleInput = (e) => {
-            const { keyCode } = e;
-            if(keyCode === 13 && editStatus) { // Enter
-                const editFile = files.find(file => file.id === editStatus);
-                onSaveEdit(editFile.id, value);
-                setEditStatus(false);
-                setValue('');
-            } else if (keyCode === 27 && editStatus) { // Esc
-                closeFileSearch(e);
-            }
+        if (enterPressed && editStatus) {
+            const editFile = files.find(file => file.id === editStatus);
+            onSaveEdit(editFile.id, value);
+            setEditStatus(false);
+            setValue('');
         }
 
-        document.addEventListener('keyup', handleInput);
-        return (() => {
-            document.removeEventListener('keyup', handleInput)
-        })
-    }, [editStatus, value, onSaveEdit])
+        if (escPressed && editStatus) {
+            closeFileSearch();
+        }
+    }, [editStatus, value, onSaveEdit, enterPressed, escPressed, files])
 
     return (
         <ul className="list-group list-group-flush file-list">

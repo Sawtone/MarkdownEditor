@@ -13,7 +13,7 @@ function App() {
         <div className="col-5 bg-dark-subtle align-items-center">
           <FileSearch
             title="My Document :D"
-            onFileSearch={(value)=>{console.log(value)}}
+            onFileSearch={(value)=>{console.log('Search: ' + value)}}
           />
           <FileList
             files={defaultFiles}
