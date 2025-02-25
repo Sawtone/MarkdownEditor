@@ -32,7 +32,7 @@ const FileSearch = ({ title, onFileSearch}) => {
     }, [isActive]);
 
     return(
-        <div className='alert alert-primary d-flex justify-content-between align-items-center'
+        <div className='alert alert-primary d-flex justify-content-between align-items-center mb-0 mt-0'
              style={{
                  marginTop: '10px',
                  marginBottom: '10px',

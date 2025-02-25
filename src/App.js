@@ -3,14 +3,16 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import FileSearch from "./Components/FileSearch.js";
 import FileList from "./Components/FileList.js";
+import BottomButton from './Components/BottomButton.js';
 import defaultFiles from "./utils/defaultFiles.js";
+import {faPlus, faFileImport, faF} from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   return (
     <div className="App container-fluid">
       {/*栅格布局 grid*/}
-      <div className="row" >
-        <div className="col-5 bg-dark-subtle align-items-center">
+      <div className="row no-gutters">
+        <div className="col-3 bg-dark-subtle align-items-center">
           <FileSearch
             title="My Document :D"
             onFileSearch={(value)=>{console.log('Search: ' + value)}}
@@ -21,8 +23,24 @@ function App() {
             onSaveEdit={(id, newValue)=>{console.log(id); console.log(newValue)}}
             onFileDelete={(id)=>{console.log('delete', id)}}
           />
+          <div className="row no-gutters">
+            <div className="col">
+              <BottomButton
+                text='新建'
+                colorClass='btn-primary'
+                icon={faPlus}
+              />
+            </div>
+            <div className="col">
+              <BottomButton
+                text='导入'
+                colorClass='btn-success'
+                icon={faFileImport}
+              />
+            </div>
+          </div>
         </div>
-        <div className="col-7 bg-danger-subtle align-items-center">
+        <div className="col-9 bg-danger-subtle align-items-center">
 
           
 

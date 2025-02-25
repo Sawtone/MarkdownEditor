@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faClose, faEdit, faSearch, faTrash} from '@fortawesome/free-solid-svg-icons';
+import {faClose, faEdit, faTrash} from '@fortawesome/free-solid-svg-icons';
 import { faMarkdown } from '@fortawesome/free-brands-svg-icons';
 import PropTypes from 'prop-types';
 import useKeyPress from '../hooks/useKeyPress.js';
@@ -119,4 +119,5 @@ FileList.propTypes = {
     onSaveEdit: PropTypes.func.isRequired,
     onFileDelete: PropTypes.func.isRequired,
 }
+
 export default FileList;
