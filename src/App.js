@@ -12,9 +12,9 @@ function App() {
     <div className="App container-fluid">
       {/*栅格布局 grid*/}
       <div className="row no-gutters">
-        <div className="col-3 bg-dark-subtle align-items-center">
+        <div className="col-3 bg-dark-subtle align-items-center px-0">
           <FileSearch
-            title="My Document :D"
+            title="Sawtone 的笔记仓库"
             onFileSearch={(value)=>{console.log('Search: ' + value)}}
           />
           <FileList
@@ -24,23 +24,25 @@ function App() {
             onFileDelete={(id)=>{console.log('delete', id)}}
           />
           <div className="row no-gutters">
-            <div className="col">
+            <div className="col d-flex">
               <BottomButton
                 text='新建'
                 colorClass='btn-primary'
                 icon={faPlus}
+                className="flex-grow-1"
               />
             </div>
-            <div className="col">
+            <div className="col d-flex">
               <BottomButton
                 text='导入'
                 colorClass='btn-success'
                 icon={faFileImport}
+                className="flex-grow-1"
               />
             </div>
           </div>
         </div>
-        <div className="col-9 bg-danger-subtle align-items-center">
+        <div className="col-9 bg-danger-subtle align-items-center px-0">
 
           
 

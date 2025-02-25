@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 
 // Stateless Functional Components，这种写法省略了 {} 和 return
-const BottomButton = ({ text, colorClass, icon, onBtnClick }) => (
+const BottomButton = ({ text, colorClass, icon, onBtnClick, className }) => (
     <button
         type="button"
         // 如果不使用模板字符串，则为：className={"btn btn-block no-border " + colorClass}
-        className={`btn btn-block no-border ${colorClass}`}
+        className={`btn btn-block no-border ${colorClass} ${className || ''}`}
         onClick={onBtnClick}
     >
         <FontAwesomeIcon
