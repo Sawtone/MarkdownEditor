@@ -7,3 +7,33 @@
 .c-link {
     cursor: pointer;
 }
+
+/* 文件列表项悬停效果 
+   box-shadow: 水平偏移 垂直偏移 模糊半径 颜色（含透明度）
+   transform: Y轴位移-1px产生上浮效果，需配合父元素设置transition */
+.hover-shadow:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+/* 按钮悬停状态样式 
+   background-color: 半透明黑色背景（5%透明度）
+   border-radius */
+.btn-hover:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 40%;
+}
+
+/* 文件列表项容器规范 
+   min-height: 保证最低高度满足触摸操作标准（Material Design建议≥48px）
+   防止内容高度不一致导致的布局跳动 */
+.file-item {
+    min-height: 48px;
+}
+
+/* 文本截断处理 
+   max-width: 限制最大宽度（200px≈12.5rem）
+   需配合父容器overflow:hidden和text-overflow:ellipsis使用 */
+.text-truncate {
+    max-width: 200px;
+}

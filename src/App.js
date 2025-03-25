@@ -4,15 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import FileSearch from "./Components/FileSearch.js";
 import FileList from "./Components/FileList.js";
 import BottomButton from './Components/BottomButton.js';
+import TabList from './Components/TabList.js';  
 import defaultFiles from "./utils/defaultFiles.js";
 import {faPlus, faFileImport, faF} from '@fortawesome/free-solid-svg-icons';
-
+  
 function App() {
   return (
     <div className="App container-fluid">
       {/*栅格布局 grid*/}
       <div className="row no-gutters">
-        <div className="col-3 bg-dark-subtle align-items-center px-0">
+        <div className="col-4 bg-dark-subtle align-items-center px-0">
           <FileSearch
             title="Sawtone 的笔记仓库"
             onFileSearch={(value)=>{console.log('Search: ' + value)}}
@@ -42,8 +43,11 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="col-9 bg-danger-subtle align-items-center px-0">
-
+        <div className="col-8 bg-danger-subtle align-items-center px-0">
+          <TabList
+            files={defaultFiles}
+            
+          />
           
 
         </div>

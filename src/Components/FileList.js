@@ -36,70 +36,75 @@ const FileList = ({files, onFileClick, onSaveEdit, onFileDelete}) => {
             {
                 files.map(file => (
                     <li
-                        className="list-group-item bg-light d-flex align-items-center file-item row me-0"
+                        className="list-group-item bg-light d-flex align-items-center file-item row me-0 py-2 hover-shadow"
                         key={file.id}
+                        style={{ transition: 'all 0.2s ease' }}
                     >
                         { (file.id !== editStatus) &&
                             <>
-                                <span className="col-2">
+                                <span className="col-1 text-center">
                                     <FontAwesomeIcon
                                         icon={faMarkdown}
                                         size="lg"
                                         title="markdown"
+                                        className="text-primary"
                                     />
                                 </span>
                                 <span
-                                    className='col-8 c-link'
+                                    className='col-8 c-link text-truncate ps-3'
                                     onClick={() => {
                                         onFileClick(file.id)
                                     }}
                                 >
                                     {file.title}
                                  </span>
-                                <button
-                                    type='button'
-                                    className='icon-button col-1'
-                                    onClick={() => {
-                                        setEditStatus(file.id);
-                                        setValue(file.title);
-                                    }}>
-                                    <FontAwesomeIcon
-                                        icon={faEdit}
-                                        size="lg"
-                                        title="edit"
-                                    />
-                                </button>
-                                <button
-                                    type='button'
-                                    className='icon-button col-1'
-                                    onClick={() => {
-                                        onFileDelete(file.id);
-                                    }}>
-                                    <FontAwesomeIcon
-                                        icon={faTrash}
-                                        size="lg"
-                                        title="trash"
-                                    />
-                                </button>
+                                 <div className="col-3 d-flex justify-content-end">
+                                    <button
+                                        type='button'
+                                        className='icon-button btn-hover p-2 me-2'
+                                        onClick={() => {
+                                            setEditStatus(file.id);
+                                            setValue(file.title);
+                                        }}>
+                                        <FontAwesomeIcon
+                                            icon={faEdit}
+                                            size="sm"
+                                            title="edit"
+                                            className="text-secondary"
+                                        />
+                                    </button>
+                                    <button
+                                        type='button'
+                                        className='icon-button btn-hover p-2'
+                                        onClick={() => onFileDelete(file.id)}>
+                                        <FontAwesomeIcon
+                                            icon={faTrash}
+                                            size="sm"
+                                            title="trash"
+                                            className="text-danger"
+                                        />
+                                    </button>
+                                </div>
                             </>
                         }
                         { (file.id === editStatus) &&
                             <div className="row align-items-center">
-                                <div className="col-11">
+                                <div className="col-9">
                                     <input
-                                        className='form-control'
+                                        className='form-control form-control-sm'
                                         value={value}
                                         onChange={(e) => setValue(e.target.value)}
+                                        autoFocus
                                     />
                                 </div>
-                                <div className="col-1">
+                                <div className="col-3 text-end">
                                     <button
                                         type='button'
-                                        className='icon-button'
+                                        className='icon-button btn-hover p-2'
                                         onClick={closeFileSearch}>
                                         <FontAwesomeIcon
                                             icon={faClose}
-                                            size="xl"
+                                            size="sm"
                                             title="close"
                                         />
                                     </button>
