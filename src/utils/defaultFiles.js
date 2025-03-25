@@ -12,7 +12,38 @@ const defaultFiles = [
         title: 'second post',
         body: '111',
         createAt: 20000
-    }
+    },
+    {
+        id: '3',
+        title: 'third post',
+        body: 'empty',
+        createAt: 30000
+    },
+    {
+        id: '4',
+        title: 'aaa',
+        body: 'empty',
+        createAt: 40000
+    },
+    {
+        id: '5',
+        title: 'bbb',
+        body: 'empty',
+        createAt: 50000
+    },
+    {
+        id: '6',
+        title: 'ccc',
+        body: 'empty',
+        createAt: 60000
+    },
+    {
+        id: '7',
+        title: 'ddd',
+        body: 'empty',
+        createAt: 70000
+    },
+    
 ]
 
 export default defaultFiles;

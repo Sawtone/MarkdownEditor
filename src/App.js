@@ -10,74 +10,56 @@ import {faPlus, faFileImport, faF} from '@fortawesome/free-solid-svg-icons';
   
 function App() {
   return (
-    <div className="App container-fluid">
-      {/*栅格布局 grid*/}
-      <div className="row no-gutters">
-        <div className="col-4 bg-dark-subtle align-items-center px-0">
-          <FileSearch
-            title="Sawtone 的笔记仓库"
-            onFileSearch={(value)=>{console.log('Search: ' + value)}}
-          />
-          <FileList
-            files={defaultFiles}
-            onFileClick={(id)=>{console.log(id)}}
-            onSaveEdit={(id, newValue)=>{console.log(id); console.log(newValue)}}
-            onFileDelete={(id)=>{console.log('delete', id)}}
-          />
-          <div className="row no-gutters">
-            <div className="col d-flex">
-              <BottomButton
-                text='新建'
-                colorClass='btn-primary'
-                icon={faPlus}
-                className="flex-grow-1"
+    <div className="App container-fluid vh-100">
+      <div className="row g-0 h-100">
+        <div className="col-12 col-md-4 bg-light border-end">
+          <div className="d-flex flex-column h-100">
+            <FileSearch
+              title="Sawtone 的笔记仓库"
+              onFileSearch={console.log}
+              className="mb-3 shadow-sm"
+            />
+            
+            <div className="flex-grow-1 overflow-auto">
+              <FileList
+                files={defaultFiles}
+                onFileClick={console.log}
+                onSaveEdit={console.log}
+                onFileDelete={console.log}
               />
             </div>
-            <div className="col d-flex">
+
+            <div className="d-grid gap-3 p-3 border-top">
               <BottomButton
-                text='导入'
-                colorClass='btn-success'
+                text='新建笔记'
+                colorClass='btn-primary'
+                icon={faPlus}
+                className="rounded-pill shadow-sm hover-scale" 
+              />
+              <BottomButton
+                text='导入文件'
+                colorClass='btn-outline-secondary'
                 icon={faFileImport}
-                className="flex-grow-1"
+                className="rounded-pill shadow-sm"
               />
             </div>
           </div>
         </div>
-        <div className="col-8 bg-danger-subtle align-items-center px-0">
-          <TabList
-            files={defaultFiles}
-            
-          />
-          
 
+        <div className="col-12 col-md-8 bg-white">
+          <div className="h-100 d-flex flex-column">
+            <TabList 
+              files={defaultFiles}
+              className="border-bottom"
+            />
+            <div className="flex-grow-1 p-4">
+              <div className="editor-placeholder">
+                <span className="text-muted">选择或创建笔记开始编辑</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-      {/*<header className="App-header">*/}
-      {/*  <img src={logo} className="App-logo" alt="logo" />*/}
-      {/*  <p>*/}
-      {/*    Edit <code>src/App.js</code> and save to reload.*/}
-      {/*  </p>*/}
-      {/*  <a*/}
-      {/*    className="App-link"*/}
-      {/*    href="https://reactjs.org"*/}
-      {/*    target="_blank"*/}
-      {/*    rel="noopener noreferrer"*/}
-      {/*  >*/}
-      {/*    Learn React*/}
-      {/*  </a>*/}
-      {/*</header>*/}
     </div>
   );
 }
