@@ -1,12 +1,18 @@
 import logo from './logo.svg';
+import React from "react";
+import { marked } from 'marked';
 import './App.css';
+// 这俩css引入有问题，暂时在public/index.html里面用CDN硬引入了(不引入好像对样式影响也不大)
 import 'bootstrap/dist/css/bootstrap.min.css'
+import "easymde/dist/easymde.min.css";
 import FileSearch from "./Components/FileSearch.js";
 import FileList from "./Components/FileList.js";
 import BottomButton from './Components/BottomButton.js';
 import TabList from './Components/TabList.js';  
 import defaultFiles from "./utils/defaultFiles.js";
 import {faPlus, faFileImport, faF} from '@fortawesome/free-solid-svg-icons';
+import SimpleMDE from "react-simplemde-editor";
+
   
 function App() {
   return (
@@ -57,8 +63,20 @@ function App() {
               className="border-bottom"
             />
             <div className="flex-grow-1 p-4">
-              <div className="editor-placeholder">
-                <span className="text-muted">选择或创建笔记开始编辑</span>
+              <div>
+                <SimpleMDE
+                  onChange={(value) => {console.log(value);}}
+                  value="## 选择或创建笔记开始编辑"
+                  // option: https://github.com/Ionaru/easy-markdown-editor?tab=readme-ov-file#options-list
+                  options={{
+                    autofocus: true,
+                    spellChecker: false,
+                    minHeight: '423px', // default：300px
+                    previewRender: (plainText) => {
+                      return marked(plainText);  // 使用marked解析Markdown
+                    },
+                  }}
+                />
               </div>
             </div>
           </div>

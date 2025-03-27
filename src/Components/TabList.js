@@ -50,7 +50,7 @@ const TabList = ({ files, activeId, unsavedIds, onTabClick, onCloseTab }) => {
                                     </button>
                                 </span>
                                 {   unsavedMark && (
-                                     // 这里的ml-2似乎无作用
+                                     // 这里的ml-2似乎无作用，只能在.scss里面强制覆盖了
                                     <span className="ml-2 unsaved-icon rounded-circle"></span>
                                 )}
                             </a>
