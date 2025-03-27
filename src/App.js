@@ -50,6 +50,10 @@ function App() {
           <div className="h-100 d-flex flex-column">
             <TabList 
               files={defaultFiles}
+              activeId="1"
+              unsavedIds={["1", "2"]}
+              onTabClick={(id) => {console.log(id);}}
+              onCloseTab={(id) => {console.log('closing', id);}} 
               className="border-bottom"
             />
             <div className="flex-grow-1 p-4">

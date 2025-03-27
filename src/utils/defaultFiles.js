@@ -31,18 +31,6 @@ const defaultFiles = [
         body: 'empty',
         createAt: 50000
     },
-    {
-        id: '6',
-        title: 'ccc',
-        body: 'empty',
-        createAt: 60000
-    },
-    {
-        id: '7',
-        title: 'ddd',
-        body: 'empty',
-        createAt: 70000
-    },
     
 ]
 

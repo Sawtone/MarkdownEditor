@@ -1,0 +1,27 @@
+.tablist-component {
+    .close-icon {
+        visibility: hidden;
+    }
+    .nav-link:hover .close-icon {
+        visibility: visible;
+    }
+    .nav-link.active .close-icon {
+        visibility: visible;
+    }
+    .unsaved-icon {
+        display: inline-block;  // 强制转为块级元素才能应用 margin
+        background: #5b5b5b;
+        width: 11px;
+        height: 11px;
+        margin-left: 0.5rem !important; // 强制覆盖
+    }
+    .unsaved.nav-link .close-icon {
+        display: none;
+    }
+    .unsaved.nav-link:hover .close-icon {
+        display: inline-block;
+    }
+    .unsaved.nav-link:hover .unsaved-icon {
+        display: none;
+    }
+}
