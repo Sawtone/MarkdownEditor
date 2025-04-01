@@ -7,14 +7,15 @@ const BottomButton = ({ text, colorClass, icon, onBtnClick, className }) => (
     <button
         type="button"
         // 如果不使用模板字符串，则为：className={"btn btn-block no-border " + colorClass}
-        className={`btn btn-block no-border ${colorClass} ${className || ''}`}
+        className={`btn btn-block no-border bottom-btn ${colorClass} ${className || ''}`}
         onClick={onBtnClick}
     >
         <FontAwesomeIcon
-            className="mr-2"
+            className="me-2"
             icon={icon}
             size="lg"
         />
+        
         {'  ' + text}
     </button>
 )

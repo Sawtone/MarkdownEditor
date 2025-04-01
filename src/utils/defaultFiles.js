@@ -3,19 +3,19 @@ import FileSearch from "../Components/FileSearch.js";
 const defaultFiles = [
     {
         id: '1',
-        title: 'first post',
+        title: 'first',
         body: 'should be aware of this',
         createAt: 10000
     },
     {
         id: '2',
-        title: 'second post',
+        title: 'second',
         body: '111',
         createAt: 20000
     },
     {
         id: '3',
-        title: 'third post',
+        title: 'third',
         body: 'empty',
         createAt: 30000
     },
